@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE codetemplates PUBLIC  "-//NetBeans//DTD Editor Code Templates settings 1.0//EN"
+                                "http://www.netbeans.org/dtds/EditorCodeTemplates-1_0.dtd">
+
+<codetemplates>
+    <codetemplate abbreviation="s">
+        <code>
+<![CDATA[SELECT * FROM ${cursor}${Table}]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="u">
+        <code>
+<![CDATA[UPDATE ${cursor}${Table} SET ${column=value} WHERE ${WhereClause}]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="d">
+        <code>
+<![CDATA[DELETE FROM ${cursor}${Table} WHERE ${WhereClause}]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="i">
+        <code>
+<![CDATA[INSERT INTO ${cursor}${Table} ${columns} VALUES (${values});]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="g">
+        <code>
+<![CDATA[GRANT ${cursor}${Permissions} ON ${DbObject Table Procedure etc} ${Object Name} TO ${User}]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="cr">
+        <code>
+<![CDATA[CREATE TABLE ${cursor}${Table} (
+    ${column1} ${type} $(NULL or NOT NULL)
+    PRIMARY KEY (${PrimaryKeyColumn}) ); ]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="m">
+        <code>
+<![CDATA[MERGE INTO ${Target_Table} AS TARGET_TABLE
+     USING ${Source_Table} AS SOURCE_TABLE
+   ON (TARGET_TABLE.${Target_Table_Field}=SOURCE_TABLE.${Source_Table_Field} )
+   WHEN MATCHED THEN
+     UPDATE SET
+     TARGET_TABLE.${Field_To_Update} = SOURCE_TABLE.${Field_To_Update}
+   WHEN NOT MATCHED THEN
+     INSERT (${Field_To_Insert})
+     VALUES(SOURCE_TABLE.${Field_To_Insert} )
+   ELSE IGNORE; ]]>
+        </code>
+    </codetemplate>
+</codetemplates>

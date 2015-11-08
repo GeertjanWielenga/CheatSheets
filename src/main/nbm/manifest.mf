@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
+OpenIDE-Module-Layer: org/netbeans/cheat/sheet/layer.xml
 OpenIDE-Module-Localizing-Bundle: org/netbeans/cheat/sheet/Bundle.properties
 
