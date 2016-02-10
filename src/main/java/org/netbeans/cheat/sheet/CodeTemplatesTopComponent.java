@@ -78,6 +78,7 @@ public final class CodeTemplatesTopComponent extends TopComponent implements Exp
     private final ExplorerManager em = new ExplorerManager();
     private FileObject internalFo = null;
     private boolean enabled = true;
+    private OutlineView ov;
 
     public CodeTemplatesTopComponent() {
         setName(Bundle.CTL_CodeTemplatesTopComponent());
@@ -96,7 +97,7 @@ public final class CodeTemplatesTopComponent extends TopComponent implements Exp
     }
 
     private void addOutlineView() {
-        OutlineView ov = new OutlineView("Template");
+        ov = new OutlineView("Template");
         ov.setPropertyColumns("value", "Expands To...","description", "Description");
         ov.getOutline().setRootVisible(false);
         add(ov, BorderLayout.CENTER);
@@ -252,10 +253,12 @@ public final class CodeTemplatesTopComponent extends TopComponent implements Exp
 
     void writeProperties(java.util.Properties p) {
         p.setProperty("version", "1.0");
+        ov.writeSettings(p, "CheatSheet");
     }
 
     void readProperties(java.util.Properties p) {
         String version = p.getProperty("version");
+        ov.readSettings(p, "CheatSheet");
     }
 
     @Override
