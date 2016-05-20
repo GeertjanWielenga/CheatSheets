@@ -49,7 +49,7 @@ import org.xml.sax.SAXException;
     "CTL_KeyBindingsTopComponent=Key Bindings",})
 public final class KeyBindingsTopComponent extends TopComponent implements ExplorerManager.Provider {
 
-    private ExplorerManager em = new ExplorerManager();
+    private final ExplorerManager em = new ExplorerManager();
 
     public KeyBindingsTopComponent() {
         setName(Bundle.CTL_KeyBindingsTopComponent());
@@ -61,7 +61,7 @@ public final class KeyBindingsTopComponent extends TopComponent implements Explo
         em.setRootContext(new AbstractNode(Children.create(new KeyBindingsChildFactory(), true)));
     }
 
-    private class KeyBindingsChildFactory extends ChildFactory<DisplayObject> {
+    private static class KeyBindingsChildFactory extends ChildFactory<DisplayObject> {
 
         @Override
         protected boolean createKeys(List<DisplayObject> list) {
