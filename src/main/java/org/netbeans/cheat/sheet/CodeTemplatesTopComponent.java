@@ -22,8 +22,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.netbeans.api.options.OptionsDisplayer;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.netbeans.cheat.sheet.api.CodeTemplateFileProcessor;
-import org.netbeans.swing.outline.DefaultOutlineModel;
-import org.netbeans.swing.outline.OutlineModel;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.StatusDisplayer;
@@ -125,12 +123,7 @@ public final class CodeTemplatesTopComponent extends TopComponent implements Exp
         JButton optionsButton = new JButton(ImageUtilities.loadImageIcon("org/netbeans/cheats/options.png", false));
         optionsButton.setPreferredSize(new Dimension(16,16));
         optionsButton.setToolTipText("Click to Modify the Code Templates");
-        optionsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                OptionsDisplayer.getDefault().open(OptionsDisplayer.EDITOR+"/CodeTemplates");
-            }
-        });
+        optionsButton.addActionListener(new OptionsButtonActionListener());
         panel.add(optionsButton);
         add(panel, BorderLayout.NORTH);
     }
@@ -295,4 +288,13 @@ public final class CodeTemplatesTopComponent extends TopComponent implements Exp
         fileObjectResult.removeLookupListener(this);
     }
 
+}
+
+class OptionsButtonActionListener implements ActionListener
+{
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		OptionsDisplayer.getDefault().open(OptionsDisplayer.EDITOR + "/CodeTemplates");
+	}
 }
