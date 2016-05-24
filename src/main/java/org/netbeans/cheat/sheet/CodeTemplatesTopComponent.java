@@ -120,7 +120,7 @@ public final class CodeTemplatesTopComponent extends TopComponent implements Exp
             }
         });
         panel.add(box);
-        JButton optionsButton = new JButton(ImageUtilities.loadImageIcon("org/netbeans/cheats/options.png", false));
+        JButton optionsButton = new JButton(ImageUtilities.loadImageIcon("org/netbeans/cheat/sheet/options.png", false));
         optionsButton.setPreferredSize(new Dimension(16,16));
         optionsButton.setToolTipText("Click to Modify the Code Templates");
         optionsButton.addActionListener(new OptionsButtonActionListener());
